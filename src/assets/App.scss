@@ -1,0 +1,67 @@
+@import "bulma/sass/utilities/initial-variables.sass";
+@import "bulma/sass/utilities/functions.sass";
+
+
+
+// Custom color overrides
+$main:#14171e;
+$main-invert: findColorInvert($main);
+
+$purple: #c9add7;
+$purple-invert: findColorInvert($purple);
+
+$navbar-burger-color: $main;
+$navbar-background-color: $main;
+$navbar-item-color: $purple;
+$navbar-item-hover-background-color: $purple;
+$navbar-item-hover-color: $purple;
+
+$card-background-color: $main;
+$card-color: white;
+$card-header-color: white;
+$card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0.8), 0 0px 0 1px rgba($purple, 1);
+
+$container-max-width: 950px;
+
+// Add new color variables to the color map.
+@import "bulma/sass/utilities/derived-variables";
+
+$addColors: (
+    "main":($main, $main-invert),
+    "purple": ($purple, $purple-invert),
+);
+$colors: map-merge($colors, $addColors);
+
+
+body>#root>div>html>.App {
+    height: 100vh;
+    min-height: 100vh;
+    background-color: $main;
+}
+
+.App {
+    background-color: $main;
+}
+.homeview {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+.card {
+    margin-bottom: 25px;
+    min-width: 450px;
+    overflow: auto;
+}
+
+.title {
+    color: white;
+}
+
+//@import "~bulma/bulma";
+// Import only what you need from Bulma
+@import "node_modules/bulma/sass/utilities/_all.sass";
+@import "node_modules/bulma/sass/base/_all.sass";
+@import "node_modules/bulma/sass/components/navbar.sass";
+@import "node_modules/bulma/sass/components/card.sass";
+@import "node_modules/bulma/sass/elements/container.sass";
