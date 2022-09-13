@@ -5,8 +5,6 @@
 $family-monospace: "Roboto Mono", monospace;
 $family-primary: $family-monospace;
 
-
-
 // Custom color overrides
 $main:#14171e;
 $main-invert: findColorInvert($main);
@@ -14,6 +12,8 @@ $main-invert: findColorInvert($main);
 $purple: #c9add7;
 $purple-invert: findColorInvert($purple);
 
+$primary: $purple;
+$primary-invert: $purple-invert;
 
 
 $navbar-burger-color: $main;
@@ -25,21 +25,15 @@ $navbar-item-hover-color: $purple;
 $card-background-color: $main;
 $card-color: white;
 $card-header-color: white;
-$card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0), 0 0px 0 1px rgba($purple, 1);
-
-
+$card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0), 0 0px 0 1.25px rgba($purple, 1);
 
 // Add new color variables to the color map.
 @import "bulma/sass/utilities/derived-variables";
-
 $addColors: (
     "main":($main, $main-invert),
     "purple": ($purple, $purple-invert),
 );
 $colors: map-merge($colors, $addColors);
-
-$custom-colors: ("purple": ($purple, $purple-invert));
-
 
 body>#root>div>html>.App {
     height: 100vh;
@@ -62,7 +56,6 @@ body>#root>div>html>.App {
     min-width: 450px;
     max-width: 450px;
     padding: 10px;
-    max-height: 120px;
 }
 
 
@@ -73,29 +66,30 @@ body>#root>div>html>.App {
     font-size: small;
 }
 
-.nextBtn {
-    background-color: $purple;
-    border-color: $purple;
-}
+
+
 .prevBtn {
-    background-color: $purple;
-    border-color: $purple;
     margin-right:10px;
 }
 .next-container {
     padding-top: 25px;
+    padding-bottom: 25px;
     display: flex;
     justify-content: center;
+}
 
+.projects-view {
+    background-color: $main;
+    min-height: 100vh;
+    height: 100%;
+    color: white;
 }
 
 
-
 //@import "~bulma/bulma";
-// Import only what you need from Bulma
-
 @import "node_modules/bulma/sass/utilities/_all.sass";
 @import "node_modules/bulma/sass/base/_all.sass";
 @import "node_modules/bulma/sass/components/navbar.sass";
 @import "node_modules/bulma/sass/components/card.sass";
 @import "node_modules/bulma/sass/elements/container.sass";
+@import "node_modules/bulma/sass/elements/button.sass";
