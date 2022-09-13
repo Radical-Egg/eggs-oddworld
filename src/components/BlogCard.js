@@ -4,8 +4,7 @@ function BlogCard(props) {
   return (
     <div className="card">
       <div className="card-content">
-        <p className="title">{props.title}</p>
-        <p className="content">{props.body}</p>
+        <p className="title is-size-6">{props.title}</p>
       </div>
     </div>
   );

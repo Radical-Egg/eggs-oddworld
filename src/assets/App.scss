@@ -1,5 +1,9 @@
 @import "bulma/sass/utilities/initial-variables.sass";
 @import "bulma/sass/utilities/functions.sass";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+$family-monospace: "Roboto Mono", monospace;
+$family-primary: $family-monospace;
 
 
 
@@ -10,6 +14,8 @@ $main-invert: findColorInvert($main);
 $purple: #c9add7;
 $purple-invert: findColorInvert($purple);
 
+
+
 $navbar-burger-color: $main;
 $navbar-background-color: $main;
 $navbar-item-color: $purple;
@@ -19,9 +25,9 @@ $navbar-item-hover-color: $purple;
 $card-background-color: $main;
 $card-color: white;
 $card-header-color: white;
-$card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0.8), 0 0px 0 1px rgba($purple, 1);
+$card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0), 0 0px 0 1px rgba($purple, 1);
 
-$container-max-width: 950px;
+
 
 // Add new color variables to the color map.
 @import "bulma/sass/utilities/derived-variables";
@@ -31,6 +37,8 @@ $addColors: (
     "purple": ($purple, $purple-invert),
 );
 $colors: map-merge($colors, $addColors);
+
+$custom-colors: ("purple": ($purple, $purple-invert));
 
 
 body>#root>div>html>.App {
@@ -45,21 +53,47 @@ body>#root>div>html>.App {
 .homeview {
     padding-left: 100px;
     padding-right: 100px;
+    min-height: 100vh;
+    height: 100%;
 }
 
-
-.card {
-    margin-bottom: 25px;
+.card-container {
+    margin-left: 0px;
     min-width: 450px;
-    overflow: auto;
+    max-width: 450px;
+    padding: 10px;
+    max-height: 120px;
 }
+
 
 .title {
     color: white;
 }
+.card-content {
+    font-size: small;
+}
+
+.nextBtn {
+    background-color: $purple;
+    border-color: $purple;
+}
+.prevBtn {
+    background-color: $purple;
+    border-color: $purple;
+    margin-right:10px;
+}
+.next-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
 
 //@import "~bulma/bulma";
 // Import only what you need from Bulma
+
 @import "node_modules/bulma/sass/utilities/_all.sass";
 @import "node_modules/bulma/sass/base/_all.sass";
 @import "node_modules/bulma/sass/components/navbar.sass";
