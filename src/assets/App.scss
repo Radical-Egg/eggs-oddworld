@@ -49,6 +49,7 @@ body>#root>div>html>.App {
     padding-right: 100px;
     min-height: 100vh;
     height: 100%;
+    overflow: auto;
 }
 
 .card-container {
@@ -58,15 +59,12 @@ body>#root>div>html>.App {
     padding: 10px;
 }
 
-
 .title {
     color: white;
 }
 .card-content {
     font-size: small;
 }
-
-
 
 .prevBtn {
     margin-right:10px;
