@@ -1,28 +1,38 @@
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const getPostByID = async (id) => {
+  const p = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+  // error handling and what not
+
+  return p.data;
+};
+
 function Blog() {
+  const { id } = useParams();
+  const count = 0;
+  const [post, setPost] = useState({});
+
+  useEffect(() => {
+    async function setData() {
+      getPostByID(id).then((p) => {
+        setPost(p);
+      });
+    }
+    setData();
+  }, [count]);
+
   return (
-    <div className="blog">
-      <div className="card">
-        <div className="card-content">
-          <p className="title">
-            “There are two hard things in computer science: cache invalidation, naming things, and
-            off-by-one errors.”
-          </p>
-          <p className="subtitle">Jeff Atwood</p>
-        </div>
-        <footer className="card-footer">
-          <p className="card-footer-item">
-            <span>
-              View on{' '}
-              <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-            </span>
-          </p>
-          <p className="card-footer-item">
-            <span>
-              Share on <a href="#">Facebook</a>
-            </span>
-          </p>
-        </footer>
+    <div className="homeview container">
+      <div className="section">
+        <p className="title">{post.title}</p>
+        <p className="subtitle">{post.body}</p>
       </div>
+      <footer className="card-footer">
+        <p> footer </p>
+      </footer>
     </div>
   );
 }

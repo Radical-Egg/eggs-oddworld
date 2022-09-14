@@ -64,7 +64,7 @@ function Home(props) {
         {posts.map((post) => {
           return (
             <div className="card-container" key={post.id}>
-              <BlogCard key={post.id} {...post} />
+              <BlogCard key={post.id} {...post} blog_key={post.id} />
             </div>
           );
         })}
