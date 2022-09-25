@@ -5,7 +5,6 @@ const Post = (db) => {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     body: DataTypes.STRING,
-    date_posted: DataTypes.DATE,
   });
 };
 
