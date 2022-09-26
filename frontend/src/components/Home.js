@@ -5,7 +5,7 @@ import axios from 'axios';
 import BlogCard from './BlogCard';
 
 const GetPosts = async () => {
-  const p = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  const p = await axios.get('http://localhost:3010/posts');
 
   return p.data;
 };

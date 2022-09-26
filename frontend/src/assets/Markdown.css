@@ -1,0 +1,28 @@
+.markdown > pre {
+  max-width: 850px;
+  background-color: transparent;
+  color: white;
+}
+
+.markdown > h1 {
+  font-size: x-large;
+  margin-bottom: 15px;
+}
+.markdown > h1:after {
+  content: ' ';
+  display: block;
+  margin-top: 10px;
+  border: 1px solid white;
+}
+
+.markdown > h2 {
+  font-size: large;
+  margin-bottom: 15px;
+}
+.markdown > h3 {
+  margin-bottom: 15px;
+}
+
+.markdown > p {
+  margin-bottom: 15px;
+}

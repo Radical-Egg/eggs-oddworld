@@ -1,12 +1,12 @@
-@import "bulma/sass/utilities/initial-variables.sass";
-@import "bulma/sass/utilities/functions.sass";
+@import 'bulma/sass/utilities/initial-variables.sass';
+@import 'bulma/sass/utilities/functions.sass';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-$family-monospace: "Roboto Mono", monospace;
+$family-monospace: 'Roboto Mono', monospace;
 $family-primary: $family-monospace;
 
 // Custom color overrides
-$main:#14171e;
+$main: #14171e;
 $main-invert: findColorInvert($main);
 
 $purple: #c9add7;
@@ -14,7 +14,6 @@ $purple-invert: findColorInvert($purple);
 
 $primary: $purple;
 $primary-invert: $purple-invert;
-
 
 $navbar-burger-color: $main;
 $navbar-background-color: $main;
@@ -28,66 +27,77 @@ $card-header-color: white;
 $card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0), 0 0px 0 1.25px rgba($purple, 1);
 
 // Add new color variables to the color map.
-@import "bulma/sass/utilities/derived-variables";
+@import 'bulma/sass/utilities/derived-variables';
 $addColors: (
-    "main":($main, $main-invert),
-    "purple": ($purple, $purple-invert),
+  'main': (
+    $main,
+    $main-invert,
+  ),
+  'purple': (
+    $purple,
+    $purple-invert,
+  ),
 );
 $colors: map-merge($colors, $addColors);
 
-body>#root>div>html>.App {
-    height: 100vh;
-    min-height: 100vh;
-    background-color: $main;
+body > #root > div > html > .App {
+  height: 100vh;
+  min-height: 100vh;
+  background-color: $main;
 }
 
 .App {
-    background-color: $main;
+  background-color: $main;
 }
 .homeview {
-    padding-left: 100px;
-    padding-right: 100px;
-    min-height: 100vh;
-    height: 100%;
-    overflow: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+  min-height: 100vh;
+  height: 100%;
+  overflow: auto;
 }
 
 .card-container {
-    margin-left: 0px;
-    min-width: 450px;
-    max-width: 450px;
-    padding: 10px;
+  margin-left: 0px;
+  min-width: 450px;
+  max-width: 450px;
+  padding: 10px;
 }
 
 .title {
-    color: white;
+  color: white;
 }
 .card-content {
-    font-size: small;
+  font-size: small;
 }
 
 .prevBtn {
-    margin-right:10px;
+  margin-right: 10px;
 }
 .next-container {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    display: flex;
-    justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .projects-view {
-    background-color: $main;
-    min-height: 100vh;
-    height: 100%;
-    color: white;
+  background-color: $main;
+  min-height: 100vh;
+  height: 100%;
+  color: white;
+}
+.blog-body {
+  color: white;
+}
+.foo {
+  white-space: 'pre-wrap';
 }
 
-
 //@import "~bulma/bulma";
-@import "node_modules/bulma/sass/utilities/_all.sass";
-@import "node_modules/bulma/sass/base/_all.sass";
-@import "node_modules/bulma/sass/components/navbar.sass";
-@import "node_modules/bulma/sass/components/card.sass";
-@import "node_modules/bulma/sass/elements/container.sass";
-@import "node_modules/bulma/sass/elements/button.sass";
+@import 'node_modules/bulma/sass/utilities/_all.sass';
+@import 'node_modules/bulma/sass/base/_all.sass';
+@import 'node_modules/bulma/sass/components/navbar.sass';
+@import 'node_modules/bulma/sass/components/card.sass';
+@import 'node_modules/bulma/sass/elements/container.sass';
+@import 'node_modules/bulma/sass/elements/button.sass';
