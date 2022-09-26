@@ -3,7 +3,9 @@
   background-color: transparent;
   color: white;
 }
-
+.markdown > code {
+  background-color: transparent;
+}
 .markdown > h1 {
   font-size: x-large;
   margin-bottom: 15px;
@@ -25,4 +27,7 @@
 
 .markdown > p {
   margin-bottom: 15px;
+}
+.markdown {
+  background-color: transparent;
 }
