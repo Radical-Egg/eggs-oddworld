@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import slugify from 'slugify';
 
 function BlogCard(props) {
   const navigate = useNavigate();
 
   const routeChange = () => {
-    let path = `/blogs/${props.blog_key}`;
+    let slug = slugify(props.title.toLowerCase());
+    let path = `/blogs/${props.blog_key}/${slug}`;
     navigate(path);
   };
 

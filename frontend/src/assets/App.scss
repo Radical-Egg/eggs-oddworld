@@ -26,6 +26,10 @@ $card-color: white;
 $card-header-color: white;
 $card-shadow: 0 0.1em 0.5em -0.125em rgba($purple, 0), 0 0px 0 1.25px rgba($purple, 1);
 
+$footer-background-color: $main;
+$footer-color: white;
+$footer-padding: 1rem 0rem 1rem;
+
 // Add new color variables to the color map.
 @import 'bulma/sass/utilities/derived-variables';
 $addColors: (
@@ -43,7 +47,10 @@ $colors: map-merge($colors, $addColors);
 body > #root > div > html > .App {
   height: 100vh;
   min-height: 100vh;
+  max-height: 100vh;
   background-color: $main;
+  padding: 0px;
+  margin: 0px;
 }
 
 .App {
@@ -53,6 +60,7 @@ body > #root > div > html > .App {
   padding-left: 100px;
   padding-right: 100px;
   min-height: 100vh;
+  max-height: 100%;
   height: 100%;
   overflow: auto;
 }
@@ -66,6 +74,7 @@ body > #root > div > html > .App {
 
 .title {
   color: white;
+  cursor: default;
 }
 .card-content {
   font-size: small;
@@ -90,8 +99,15 @@ body > #root > div > html > .App {
 .blog-body {
   color: white;
 }
-.foo {
-  white-space: 'pre-wrap';
+
+.subtitle {
+  color: $purple;
+}
+
+.card-footer {
+  justify-content: center;
+  min-width: 450px;
+  max-width: 450px;
 }
 
 //@import "~bulma/bulma";
@@ -101,3 +117,4 @@ body > #root > div > html > .App {
 @import 'node_modules/bulma/sass/components/card.sass';
 @import 'node_modules/bulma/sass/elements/container.sass';
 @import 'node_modules/bulma/sass/elements/button.sass';
+@import 'node_modules/bulma/sass/layout/footer.sass';

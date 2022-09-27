@@ -9,7 +9,7 @@ function AppRouter(props) {
     <Routes>
       <Route path="/" element={<Home appRef={props.appRef} />} />
       <Route path="projects" element={<Projects />} />
-      <Route path="/blogs/:id" element={<Blog />} />
+      <Route path="/blogs/:id/:title" element={<Blog />} />
     </Routes>
   );
 }

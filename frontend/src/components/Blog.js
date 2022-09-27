@@ -33,7 +33,7 @@ function Blog() {
     <div className="homeview container">
       <div className="section">
         <p className="title">{post.title}</p>
-        <p className="subtitle">{post.description}</p>
+        <p className="subtitle blog-subtitle">{post.description}</p>
         <div className="blog-body">
           <ReactMarkdown rehypePlugins={[rehypeRaw]} components={CodeBlock} className="markdown">
             {
@@ -43,9 +43,6 @@ function Blog() {
           </ReactMarkdown>
         </div>
       </div>
-      <footer className="card-footer">
-        <p> footer </p>
-      </footer>
     </div>
   );
 }
