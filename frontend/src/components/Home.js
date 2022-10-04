@@ -1,90 +1,95 @@
 import { useEffect, useState, createRef } from 'react';
 import { PropTypes } from 'prop-types';
-
 import axios from 'axios';
-import BlogCard from './BlogCard';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { useNavigate } from 'react-router-dom';
+import slugify from 'slugify';
 
-const GetPosts = async () => {
-  const p = await axios.get('http://localhost:3010/posts');
-
-  return p.data;
-};
+// Logo SVGs
+import { ReactComponent as GoIcon } from '../assets/Go_Logo_Black.svg';
+//import { ReactComponent as RustIcon } from '../assets/Go_Logo_Black.svg';
+//import { ReactComponent as NodeIcon } from '../assets/Go_Logo_Black.svg';
 
 function Home(props) {
   const homeviewRef = createRef();
-  const renderLimit = 15;
   const [posts, setPosts] = useState([]);
-  const [postLen, setPostLen] = useState(null);
-  const [next, setNext] = useState(0);
-  const [next_end, setNextEnd] = useState(15);
+  const navigate = useNavigate();
 
-  const nextPage = async () => {
-    let n = next + renderLimit;
-    let n_end = next_end + renderLimit;
-
-    if (n_end > postLen) {
-      setNext(postLen - renderLimit);
-      setNextEnd(postLen);
-    } else {
-      setNext(n);
-      setNextEnd(n_end);
-    }
-  };
-
-  const prevPage = async () => {
-    let prev = next - renderLimit;
-    let prev_end = next_end - renderLimit;
-
-    if (prev < 0) {
-      setNext(0);
-      setNextEnd(renderLimit);
-    } else {
-      setNext(prev);
-      setNextEnd(prev_end);
-    }
+  const routeChange = (id, title) => {
+    let slug = slugify(title.toLowerCase());
+    let path = `/blogs/${id}/${slug}`;
+    navigate(path);
   };
 
   useEffect(() => {
     async function setData() {
-      const p = await GetPosts();
-      setPostLen(p.length);
-      setPosts(p.slice(next, next_end));
+      axios
+        .get('http://localhost:3010/posts')
+        .then((post) => {
+          setPosts(post.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
     setData();
-  }, [next]);
+  }, []);
 
   useEffect(() => {
     props.appRef.current.scrollIntoView({ behavior: 'smooth' });
   });
 
   return (
-    <div className="homeview" ref={homeviewRef}>
-      <div className="column is-max-desktop card-column is-flex-direction-column is-flex is-justify-content-flex-right">
-        <h1 className="title">Blogs</h1>
-        {posts.map((post) => {
-          return (
-            <div className="card-container" key={post.id}>
-              <BlogCard key={post.id} {...post} blog_key={post.id} />
+    <div
+      className="homeview is-flex is-justify-content-center is-flex-direction-column"
+      ref={homeviewRef}>
+      <div className="is-max-desktop is-flex is-justify-content-center is-flex-direction-column">
+        <section className="hero is-flex is-justify-content-center">
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <p className="title">Projects and Blogs</p>
+              <p className="subtitle">Collection of stuff</p>
             </div>
-          );
-        })}
+          </div>
+        </section>
       </div>
-      {postLen > renderLimit && (
-        <div className="container is-centered next-container">
-          <button className="button prevBtn is-outlined is-primary" onClick={prevPage}>
-            Previous
-          </button>
-
-          <button className="button is-primary is-outlined" onClick={nextPage}>
-            Next
-          </button>
-        </div>
-      )}
+      <div className="is-max-desktop is-flex is-justify-content-center is-flex-direction-column">
+        <VerticalTimeline lineColor={iconStyles.background}>
+          {posts.map((element) => {
+            return (
+              <VerticalTimelineElement
+                textClassName="vertical-timeline-element-custom"
+                key={element.id}
+                date={element.date}
+                dateClassName="date"
+                contentStyle={cardContentStyles}
+                onTimelineElementClick={() => {
+                  routeChange(element.id, element.title);
+                }}
+                iconStyle={iconStyles}
+                icon={<GoIcon />}>
+                <h3 className="vertical-timeline-element-title">{element.title}</h3>
+                <p id="description">{element.description}</p>
+              </VerticalTimelineElement>
+            );
+          })}
+        </VerticalTimeline>
+      </div>
     </div>
   );
 }
 Home.propTypes = {
   appRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
 };
+
+const cardContentStyles = {
+  background: 'transparent',
+  color: '#fff',
+  border: 'solid',
+  borderWidth: '1px',
+};
+
+const iconStyles = { background: '#c9add7' };
 
 export default Home;

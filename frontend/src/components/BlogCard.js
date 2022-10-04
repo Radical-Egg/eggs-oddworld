@@ -17,8 +17,11 @@ function BlogCard(props) {
       onClick={() => {
         routeChange();
       }}>
+      <header className="card-header">
+        <p className="card-header-title title is-size-6">{props.title}</p>
+      </header>
       <div className="card-content">
-        <p className="title is-size-6">{props.title}</p>
+        <div className="content">{props.description}</div>
       </div>
     </div>
   );
@@ -26,6 +29,7 @@ function BlogCard(props) {
 BlogCard.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
+  description: PropTypes.string,
   blog_key: PropTypes.number,
 };
 

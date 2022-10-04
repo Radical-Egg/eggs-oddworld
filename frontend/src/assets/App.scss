@@ -53,22 +53,29 @@ body > #root > div > html > .App {
   margin: 0px;
 }
 
+.blog-container {
+  padding: 25px;
+}
+html {
+  background-color: $main !important;
+  padding: 0px;
+  margin: 0px;
+}
+
 .App {
   background-color: $main;
 }
-.homeview {
-  padding-left: 100px;
-  padding-right: 100px;
-  min-height: 100vh;
-  max-height: 100%;
+.homeview,
+.projects-view {
+  min-height: 90vh;
+  max-height: 90%;
   height: 100%;
-  overflow: auto;
+  padding-left: 55px;
+  padding-right: 55px;
 }
 
 .card-container {
-  margin-left: 0px;
-  min-width: 450px;
-  max-width: 450px;
+  max-width: 900px;
   padding: 10px;
 }
 
@@ -80,6 +87,12 @@ body > #root > div > html > .App {
   font-size: small;
 }
 
+.card-column {
+  justify-content: center;
+}
+.hero {
+  justify-content: center !important;
+}
 .prevBtn {
   margin-right: 10px;
 }
@@ -90,12 +103,6 @@ body > #root > div > html > .App {
   justify-content: center;
 }
 
-.projects-view {
-  background-color: $main;
-  min-height: 100vh;
-  height: 100%;
-  color: white;
-}
 .blog-body {
   color: white;
 }
@@ -108,6 +115,22 @@ body > #root > div > html > .App {
   justify-content: center;
   min-width: 450px;
   max-width: 450px;
+}
+
+.vertical-timeline-element-custom:before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+  width: 0px !important;
+  height: 100% !important;
+  background: rgba(201, 173, 215, 0.5) !important;
+  border-radius: 5px !important;
+  transition: all 1s ease !important;
+}
+
+.vertical-timeline-element-custom:hover:before {
+  width: 100% !important;
 }
 
 //@import "~bulma/bulma";

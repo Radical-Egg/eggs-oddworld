@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
-import Projects from './Projects';
+import About from './About';
 import Blog from './Blog';
 import { PropTypes } from 'prop-types';
 
@@ -8,7 +8,7 @@ function AppRouter(props) {
   return (
     <Routes>
       <Route path="/" element={<Home appRef={props.appRef} />} />
-      <Route path="projects" element={<Projects />} />
+      <Route path="me" element={<About />} />
       <Route path="/blogs/:id/:title" element={<Blog />} />
     </Routes>
   );

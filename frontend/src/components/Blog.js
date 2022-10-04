@@ -30,7 +30,7 @@ function Blog() {
   }, [count]);
 
   return (
-    <div className="homeview container">
+    <div className="homeview container blog-container">
       <div className="section">
         <p className="title">{post.title}</p>
         <p className="subtitle blog-subtitle">{post.description}</p>
