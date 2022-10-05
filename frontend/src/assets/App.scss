@@ -117,20 +117,29 @@ html {
   max-width: 450px;
 }
 
-.vertical-timeline-element-custom:before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0px !important;
-  left: 0px !important;
-  width: 0px !important;
-  height: 100% !important;
-  background: rgba(201, 173, 215, 0.5) !important;
-  border-radius: 5px !important;
-  transition: all 1s ease !important;
+.vertical-timeline-element-custom:hover {
+  color: $main !important;
+  background: $purple !important;
 }
 
-.vertical-timeline-element-custom:hover:before {
-  width: 100% !important;
+// disbale onclick for date span
+.vertical-timeline-element-date {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.vertical-timeline-custom:before {
+  position: absolute !important;
+  bottom: 0 !important;
+  top: unset !important;
+  height: 95% !important;
+}
+.vertical-timeline::before {
+  top: 1 !important;
+}
+
+vertical-timeline-element-title {
+  font-size: x-large !important;
 }
 
 //@import "~bulma/bulma";

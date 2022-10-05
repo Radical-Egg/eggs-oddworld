@@ -54,28 +54,25 @@ function Home(props) {
           </div>
         </section>
       </div>
-      <div className="is-max-desktop is-flex is-justify-content-center is-flex-direction-column">
-        <VerticalTimeline lineColor={iconStyles.background}>
-          {posts.map((element) => {
-            return (
-              <VerticalTimelineElement
-                textClassName="vertical-timeline-element-custom"
-                key={element.id}
-                date={element.date}
-                dateClassName="date"
-                contentStyle={cardContentStyles}
-                onTimelineElementClick={() => {
-                  routeChange(element.id, element.title);
-                }}
-                iconStyle={iconStyles}
-                icon={<GoIcon />}>
-                <h3 className="vertical-timeline-element-title">{element.title}</h3>
-                <p id="description">{element.description}</p>
-              </VerticalTimelineElement>
-            );
-          })}
-        </VerticalTimeline>
-      </div>
+
+      <VerticalTimeline lineColor={iconStyles.background} className="vertical-timeline-custom">
+        {posts.map((element) => {
+          return (
+            <VerticalTimelineElement
+              textClassName="vertical-timeline-element-custom"
+              key={element.id}
+              contentStyle={cardContentStyles}
+              onTimelineElementClick={() => {
+                routeChange(element.id, element.title);
+              }}
+              iconStyle={iconStyles}
+              icon={<GoIcon />}>
+              <h3 className="vertical-timeline-element-title is-size-3	">{element.title}</h3>
+              <p id="description">{element.description}</p>
+            </VerticalTimelineElement>
+          );
+        })}
+      </VerticalTimeline>
     </div>
   );
 }
@@ -88,6 +85,7 @@ const cardContentStyles = {
   color: '#fff',
   border: 'solid',
   borderWidth: '1px',
+  boxShadow: 'none',
 };
 
 const iconStyles = { background: '#c9add7' };
