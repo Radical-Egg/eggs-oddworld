@@ -15,6 +15,9 @@ $purple-invert: findColorInvert($purple);
 $primary: $purple;
 $primary-invert: $purple-invert;
 
+$textMain: #e5e5e5;
+$textMain-invert: findColorInvert($textMain);
+
 $navbar-burger-color: $main;
 $navbar-background-color: $main;
 $navbar-item-color: $purple;
@@ -116,7 +119,8 @@ body,
 
 .vertical-timeline-element-custom:hover {
   color: $main !important;
-  background: $purple !important;
+  background: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
 }
 
 // disbale onclick for date span

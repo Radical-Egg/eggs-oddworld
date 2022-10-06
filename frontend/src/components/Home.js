@@ -66,6 +66,7 @@ function Home(props) {
               textClassName="vertical-timeline-element-custom"
               key={element.id}
               contentStyle={cardContentStyles}
+              contentArrowStyle={contentArrowStyles}
               onTimelineElementClick={() => {
                 routeChange(element.id, element.title);
               }}
@@ -88,10 +89,16 @@ Home.propTypes = {
 
 const cardContentStyles = {
   background: 'transparent',
-  color: '#fff',
+  color: '#e5e5e5',
   border: 'solid',
   borderWidth: '3px',
   boxShadow: 'none',
+  borderRadius: '20px',
+  borderColor: '#c9add7',
+};
+
+const contentArrowStyles = {
+  borderRight: 'unset',
 };
 
 const iconStyles = { background: '#c9add7' };
