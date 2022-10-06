@@ -44,34 +44,37 @@ $addColors: (
 );
 $colors: map-merge($colors, $addColors);
 
-body > #root > div > html > .App {
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-  background-color: $main;
-  padding: 0px;
-  margin: 0px;
-}
-
 .blog-container {
   padding: 25px;
 }
-html {
-  background-color: $main !important;
-  padding: 0px;
-  margin: 0px;
+
+html,
+body,
+#root,
+.App {
+  height: fit-content !important;
+  min-height: 100vh !important;
 }
 
 .App {
-  background-color: $main;
+  background-image: linear-gradient($main 15%, #70637c 100%, $purple 150%);
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
 }
 .homeview,
 .projects-view {
-  min-height: 90vh;
-  max-height: 90%;
-  height: 100%;
   padding-left: 55px;
   padding-right: 55px;
+  height: stretch;
+  min-height: 100vh;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+  margin: 0;
+  padding-bottom: 0;
 }
 
 .card-container {
@@ -111,12 +114,6 @@ html {
   color: $purple;
 }
 
-.card-footer {
-  justify-content: center;
-  min-width: 450px;
-  max-width: 450px;
-}
-
 .vertical-timeline-element-custom:hover {
   color: $main !important;
   background: $purple !important;
@@ -129,17 +126,18 @@ html {
 }
 
 .vertical-timeline-custom:before {
-  position: absolute !important;
-  bottom: 0 !important;
   top: unset !important;
   height: 95% !important;
-}
-.vertical-timeline::before {
-  top: 1 !important;
+  border-radius: 25px;
 }
 
-vertical-timeline-element-title {
+.vertical-timeline-element-title {
   font-size: x-large !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 //@import "~bulma/bulma";

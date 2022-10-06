@@ -25,11 +25,18 @@ function Home(props) {
   useEffect(() => {
     async function setData() {
       axios
-        .get('http://localhost:3010/posts')
+        .get('http://192.168.1.129:3010/posts', {
+          method: 'get',
+          headers: {
+            'Content-type': 'Application/json',
+          },
+          data: {},
+        })
         .then((post) => {
           setPosts(post.data);
         })
         .catch((err) => {
+          console.log('some error happened');
           console.log(err);
         });
     }
@@ -41,20 +48,17 @@ function Home(props) {
   });
 
   return (
-    <div
-      className="homeview is-flex is-justify-content-center is-flex-direction-column"
-      ref={homeviewRef}>
+    <div className="homeview " ref={homeviewRef}>
       <div className="is-max-desktop is-flex is-justify-content-center is-flex-direction-column">
         <section className="hero is-flex is-justify-content-center">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <p className="title">Projects and Blogs</p>
+              <p className="title">Projects</p>
               <p className="subtitle">Collection of stuff</p>
             </div>
           </div>
         </section>
       </div>
-
       <VerticalTimeline lineColor={iconStyles.background} className="vertical-timeline-custom">
         {posts.map((element) => {
           return (
@@ -67,7 +71,9 @@ function Home(props) {
               }}
               iconStyle={iconStyles}
               icon={<GoIcon />}>
-              <h3 className="vertical-timeline-element-title is-size-3	">{element.title}</h3>
+              <h3 className="vertical-timeline-element-title is-size-4	is-underlined">
+                {element.title}
+              </h3>
               <p id="description">{element.description}</p>
             </VerticalTimelineElement>
           );
@@ -84,7 +90,7 @@ const cardContentStyles = {
   background: 'transparent',
   color: '#fff',
   border: 'solid',
-  borderWidth: '1px',
+  borderWidth: '3px',
   boxShadow: 'none',
 };
 

@@ -7,7 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import '../assets/Markdown.css';
 
 const getPostByID = async (id) => {
-  const p = await axios.get(`http://localhost:3010/posts/${id}`);
+  const p = await axios.get(`http://192.168.1.129:3010/posts/${id}`);
 
   // error handling and what not
 
@@ -30,7 +30,7 @@ function Blog() {
   }, [count]);
 
   return (
-    <div className="homeview container blog-container">
+    <div className="blogview container blog-container">
       <div className="section">
         <p className="title">{post.title}</p>
         <p className="subtitle blog-subtitle">{post.description}</p>
