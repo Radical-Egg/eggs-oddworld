@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
+var cors = require("cors");
 
 // Single routing
 const router = express.Router();
 
 const posts = require("../controllers/Posts.js");
 
-router.get("/posts", async (req, res, next) => {
+router.get("/posts", cors(), async (req, res, next) => {
   try {
     let allPosts = await posts.findAll();
     res.send(allPosts);

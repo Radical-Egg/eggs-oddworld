@@ -51,33 +51,22 @@ $colors: map-merge($colors, $addColors);
   padding: 25px;
 }
 
-html,
-body,
-#root,
-.App {
-  height: fit-content !important;
-  min-height: 100vh !important;
-}
-
 .App {
   background-image: linear-gradient($main 15%, #70637c 100%, $purple 150%);
-  height: 100vh;
-  min-height: 100vh;
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: stretch;
+  height: 100vh !important;
+  height: fit-content !important;
+  min-height: -moz-available !important;
+  min-height: -webkit-fill-available !important;
+  min-height: stretch !important;
 }
-.homeview,
+
 .projects-view {
-  padding-left: 55px;
-  padding-right: 55px;
-  height: stretch;
-  min-height: 100vh;
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: stretch;
-  margin: 0;
-  padding-bottom: 0;
+  background-image: linear-gradient($main 15%, #70637c 100%, $purple 150%);
+  height: 100vh !important;
+
+  min-height: -moz-available !important;
+  min-height: -webkit-fill-available !important;
+  min-height: stretch !important;
 }
 
 .card-container {
