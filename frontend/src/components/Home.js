@@ -25,10 +25,12 @@ function Home(props) {
   useEffect(() => {
     async function setData() {
       axios
-        .get('http://192.168.1.129:3010/posts', {
+        .get('http://portfolio_backend:3010/posts', {
           method: 'get',
           headers: {
             'Content-type': 'Application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
           },
           data: {},
         })

@@ -9,7 +9,7 @@ const app = express();
 const router = require("./src/router/routes.js");
 const db = require("./src/db/sql.js");
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

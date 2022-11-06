@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  proxy:
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    container_name: nginx_proxy_manager
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - ./proxy_manager/data:/data
+      - ./proxy_manager/letsencrypt:/etc/letsencrypt
+    networks:
+      - frontend
+      - backend
+
+  frontend:
+    container_name: portfolio_frontend
+    build:
+      context: .
+      target: frontend
+    volumes:
+      - ./frontend:/app/
+      - /app/node_modules
+    networks:
+      - frontend
+      - backend
+  backend:
+    container_name: portfolio_backend
+    build:
+      context: .
+      target: backend
+    volumes:
+      - ./backend/index.js:/app/index.js
+      - ./backend/src:/app/src
+      - ./backend/db:/app/db
+    networks:
+      - backend
+networks:
+  frontend:
+  backend:
