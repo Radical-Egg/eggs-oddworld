@@ -7,7 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import '../assets/Markdown.css';
 
 const getPostByID = async (id) => {
-  const p = await axios.get(`http://portfolio_backend:3010/posts/${id}`);
+  const p = await axios.get(`https://api.egg-oddworld.dev/posts/${id}`);
 
   // error handling and what not
 

@@ -25,7 +25,7 @@ function Home(props) {
   useEffect(() => {
     async function setData() {
       axios
-        .get('http://portfolio_backend:3010/posts', {
+        .get('https://api.egg-oddworld.dev/posts', {
           method: 'get',
           headers: {
             'Content-type': 'Application/json',
