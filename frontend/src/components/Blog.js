@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 import axios from 'axios';
+import { api_config } from '../config';
 import rehypeRaw from 'rehype-raw';
 import '../assets/Markdown.css';
 
 const getPostByID = async (id) => {
-  const p = await axios.get(`https://api.egg-oddworld.dev/posts/${id}`);
+  const p = await axios.get(`${api_config}/posts/${id}`);
 
   // error handling and what not
 

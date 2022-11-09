@@ -5,6 +5,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { useNavigate } from 'react-router-dom';
 import slugify from 'slugify';
+import { api_config } from '../config';
 
 // Logo SVGs
 import { ReactComponent as GoIcon } from '../assets/Go_Logo_Black.svg';
@@ -25,7 +26,7 @@ function Home(props) {
   useEffect(() => {
     async function setData() {
       axios
-        .get('https://api.egg-oddworld.dev/posts', {
+        .get(`${api_config}/posts`, {
           method: 'get',
           headers: {
             'Content-type': 'Application/json',
