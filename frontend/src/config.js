@@ -1,3 +1,3 @@
 export const api_config = process.env.PRODUCTION
-  ? 'https://api.egg-oddworld.dev'
-  : 'http://127.0.0.1:3010';
+  ? 'https://api.nigiri.dev'
+  : 'https://api.nigiri.dev';

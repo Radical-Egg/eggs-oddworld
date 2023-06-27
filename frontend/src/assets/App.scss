@@ -132,6 +132,11 @@ $colors: map-merge($colors, $addColors);
   margin: 0;
   padding: 0;
 }
+html, body, #root, .App {
+  height: 100%;
+  color: $main !important;
+  background: $main !important;
+}
 
 //@import "~bulma/bulma";
 @import 'node_modules/bulma/sass/utilities/_all.sass';

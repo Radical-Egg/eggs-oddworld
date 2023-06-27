@@ -7,11 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import slugify from 'slugify';
 import { api_config } from '../config';
 
-// Logo SVGs
-import { ReactComponent as GoIcon } from '../assets/Go_Logo_Black.svg';
-//import { ReactComponent as RustIcon } from '../assets/Go_Logo_Black.svg';
-//import { ReactComponent as NodeIcon } from '../assets/Go_Logo_Black.svg';
-
 function Home(props) {
   const homeviewRef = createRef();
   const [posts, setPosts] = useState([]);
@@ -73,8 +68,7 @@ function Home(props) {
               onTimelineElementClick={() => {
                 routeChange(element.id, element.title);
               }}
-              iconStyle={iconStyles}
-              icon={<GoIcon />}>
+              iconStyle={iconStyles}>
               <h3 className="vertical-timeline-element-title is-size-4	is-underlined">
                 {element.title}
               </h3>

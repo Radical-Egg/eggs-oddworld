@@ -8,7 +8,6 @@ function AppRouter(props) {
   return (
     <Routes>
       <Route path="/" element={<Home appRef={props.appRef} />} />
-      <Route path="me" element={<About />} />
       <Route path="/blogs/:id/:title" element={<Blog />} />
     </Routes>
   );
